@@ -71,8 +71,8 @@ else if (!city) {
   else if (!typeOfSport) {
     messageSport = (`It's a pity that you didn't want to enter your favorite sport!`);
   }
-  else {
-    messageSport = `Your favorite sport is ` + typeOfSport `!`;
+  else{
+    messageSport = `Your favorite sport is`  + typeOfSport;
   }
 
 alert(` ${messageBirth} ${messageCity}  ${ messageSport}`);
