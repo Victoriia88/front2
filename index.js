@@ -78,16 +78,17 @@
 // alert(` ${messageBirth} ${messageCity}  ${ messageSport}`);
 
  
-let operator = prompt('What operation do you want to perform? (+, -, *, /)');
+let operator;
+do {
+  operator = prompt('What operation do you want to perform? (+, -, *, /)');
+} while (operator !== '+' && operator !== '-' && operator !== '*' && operator !== '/');
 
-while (operator !== '+' && operator !== '-' && operator !== '*' && operator !== '/') {
-  operator = prompt('Operator is invalid. Please enter a valid operator (+, -, *, /)');
-}
 
-let countOperands = parseInt(prompt('How many operands do you want to use from 2 to 6?'));
-while (countOperands < 2 || countOperands > 6 || isNaN(countOperands)) {
-  countOperands = parseInt(prompt('The number of operands is incorrect. Please enter a number between 2 and 6.'));
-}
+let countOperands;
+do {
+  countOperands = parseInt(prompt('How many operands do you want to use from 2 to 6?'));
+} while (countOperands < 2 || countOperands > 6 || isNaN(countOperands));
+
 
 let operands = [];
 let count = 0;
@@ -104,48 +105,34 @@ alert("Invalid input! Please enter a number.");
 let result;
 switch (operator) {
   case "+":
-    result = operands[0] + operands[1];
-    if (countOperands > 2) {
-      let count = 2;
-      while (count < countOperands) {
-        result += operands[count];
-        count++;
-      }
+    result = operands[0];
+      for (let i =1; i < countOperands; i++) {
+        result += operands[i];
     }
     break;
-    
+
   case "-":
-    result = operands[0] - operands[1];
-    if (countOperands > 2) {
-      let count = 2;
-      while (count < countOperands) {
-        result -= operands[count];
-        count++;
-      }
+    result = operands[0];
+    for (let i = 1; i < countOperands; i++) {
+      result -= operands[i];
     }
     break;
 
   case "/":
-    result = operands[0] / operands[1];
-    if (countOperands > 2) {
-      let count = 2;
-      while (count < countOperands) {
-        result /= operands[count];
-        count++;
-      }
+    result = operands[0];
+    for (let i = 1; i < countOperands; i++) {
+      result /= operands[i];
     }
     break;
 
   case "*":
-    result = operands[0] * operands[1];
-    if (countOperands > 2) {
-      let count = 2;
-      while (count < countOperands) {
-        result *= operands[count];
-        count++;
-      }
+    result = operands[0];
+    for (let i = 1; i < countOperands; i++) {
+      result *= operands[i];
     }
     break;
+
 }
 
 alert(`The results is ${result}.`);
+
