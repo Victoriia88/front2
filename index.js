@@ -1,138 +1,115 @@
-// // firstNumber = prompt ('Please enter the first number?');
-// // secondNumber = prompt ('Please enter the second number?');
-// // minus = (+firstNumber) - (+secondNumber);
-// // plus = (+firstNumber) + (+secondNumber);
-// // multiplication = (+firstNumber) * (+secondNumber);
-// // divide = (+firstNumber) / (+secondNumber);
-// // alert (firstNumber + '-' + secondNumber + '=' + minus);
-// // alert (firstNumber + '+' + secondNumber + '=' + plus);
-// // alert (firstNumber + '*' + secondNumber + '=' + multiplication);
-// // alert (firstNumber + '/' + secondNumber + '=' + divide);
+// Знайти суму та кількість позитивних елементів
+arrayConst = [16,-37,54,-4,72,-56,47,4, -16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
+
+sumPositive = 0;
+countPositive = 0;
+for (i = 0; i < arrayConst.length; i++){
+  if (arrayConst[i] > 0){
+    sumPositive += arrayConst[i];
+    countPositive++;
+  }
+}
+console.log(`Sum of positive elements ${sumPositive}`);
+console.log(`Count of positive elements ${countPositive}`);
 
 
-// // firstRow = prompt ('Please enter your first name?')
-// // secondRow = prompt ('Please enter your second name?')
-// // thirthRow = prompt ('Please enter your nationality?')
-// // console.log(firstRow + ' ' + secondRow + ' ' + thirthRow);
-
-// // numbers = prompt ('Please enter 5 numbers?')
-// // newNumbers = numbers.toString().replaceAll('', ' ');
-// // console.log(newNumbers);
-
-// // firstNub = parseFloat (prompt ('Please enter your first number?'));
-// // secondtNub = parseFloat (prompt ('Please enter your second number?'));
-// // thirthNub = parseFloat (prompt ('Please enter your thirth number?'));
-
-// // averageNum = (firstNub + secondtNub + thirthNub) / 3;
-// // alert(`Your average number is  ${averageNum} !`);
+// Знайти мінімальний елемент масиву та його порядковий номер
+minElement = arrayConst[0];
+minIndex = 0;
+for (i = 1; i < arrayConst.length; i++) {
+  if (arrayConst[i] < minElement) {
+    minElement = arrayConst[i];
+    minIndex = i;
+  }
+}
+console.log(`Minimum element: ${minElement}`);
+console.log(`Number in the order of the minimum element: ${minIndex}`);
 
 
-// birthYear = prompt('Please enter your year of birth?');
-// city = prompt('What is your city?');
-// typeOfSport = prompt('What is your favorite sport?');
-
-// currentYear = new Date().getFullYear();
-// age = currentYear - birthYear;
-
-// messageBirth =`Your ${age} years old.`;
-
-// if (!birthYear) {
-//     messageBirth = (`It's a pity that you didn't want to enter your year of birth!`);
-//   } 
-
-
-// messageCity = `You live in city ${city}`;
-
-// if (city === "Kyiv") {
-//     messageCity = `You live in the capital of Ukraine, ${city}.`;
-// } else if (city === "Washington") {
-//     messageCity = `You live in the capital of USA, ${city}.`;
-// } else if (city === "London") {
-//     messageCity = `You live in the capital of Great Britain, ${city}.`;
-// }
-// else if (!city) {
-//     messageCity = `It's a pity that you didn't want to enter your city!`;
-// }
+// Знайти максимальний елемент масиву та його порядковий номер
+maxElement = arrayConst[0];
+maxIndex = 0;
+for (i = 1; i < arrayConst.length; i++) {
+  if (arrayConst[i] > maxElement) {
+    maxElement = arrayConst[i];
+    maxIndex = i;
+  }
+}
+console.log(`Maximum element: ${maxElement}`);
+console.log(`Number in the order of the maximum element: ${maxIndex}`);
 
 
-//   mma = ('Jonathan Dwight Jones');
-//   box = ('Volodymyr Klichko');
-//   football = ('Lionel Messi');
-
-//   messageSport = `Cool! Do you want to become ${typeOfSport} ?`;
-
-//   if (typeOfSport === "mma") {
-//     messageSport = `Cool! Do you want to become ${mma} ?`; 
-//   } else if (typeOfSport === "box") {
-//     messageSport = `Cool! Do you want to become ${box} ?`; 
-//   } else if (typeOfSport === "football") {
-//     messageSport = `Cool! Do you want to become ${football} ?`; 
-//   }
-//   else if (!typeOfSport) {
-//     messageSport = (`It's a pity that you didn't want to enter your favorite sport!`);
-//   }
-//   else{
-//     messageSport = `Your favorite sport is `  + typeOfSport;
-//   }
-
-// alert(` ${messageBirth} ${messageCity}  ${ messageSport}`);
-
- 
-let operator;
-do {
-  operator = prompt('What operation do you want to perform? (+, -, *, /)');
-} while (operator !== '+' && operator !== '-' && operator !== '*' && operator !== '/');
+// Визначити кількість негативних елементів
+countNegative = 0;
+for (i = 0; i < arrayConst.length; i++) {
+  if (arrayConst[i] < 0) {
+    countNegative++;
+  }
+}
+console.log(`Count of negative elements: ${countNegative}`);
 
 
-let countOperands;
-do {
-  countOperands = parseInt(prompt('How many operands do you want to use from 2 to 6?'));
-} while (countOperands < 2 || countOperands > 6 || isNaN(countOperands));
+// Знайти кількість непарних позитивних елементів
+countOddPositive = 0;
+for (i = 0; i < arrayConst.length; i++) {
+  if (arrayConst[i] > 0 && arrayConst[i] % 2 !== 0) {
+    countOddPositive++;
+  }
+}
+console.log(`Count of odd positive elements: ${countOddPositive}`);
 
 
-let operands = [];
-let count = 0;
-while (count < countOperands) {
-let operand = parseFloat(prompt(`Enter operand ${count+1}:`));
-if (!isNaN(operand)) {
-operands[count] = operand;
-count++;
-} else {
-alert("Invalid input! Please enter a number.");
+// Знайти кількість парних позитивних елементів
+countEvenPositive = 0;
+for (i = 0; i < arrayConst.length; i++) {
+  if (arrayConst[i] > 0 && arrayConst[i] % 2 === 0) {
+    countEvenPositive++;
+  }
+}
+console.log(`Count of even positive elements: ${countEvenPositive}`);
+
+
+// Знайти суму парних позитивних елементів
+sumEvenPositive = 0;
+for (i = 0; i < arrayConst.length; i++) {
+if (arrayConst[i] > 0 && arrayConst[i] % 2 === 0) {
+sumEvenPositive += arrayConst[i];
 }
 }
+console.log(`Sum of even positive elements: ${sumEvenPositive}`);
 
-let result;
-switch (operator) {
-  case "+":
-    result = operands[0];
-      for (let i =1; i < countOperands; i++) {
-        result += operands[i];
-    }
-    break;
 
-  case "-":
-    result = operands[0];
-    for (let i = 1; i < countOperands; i++) {
-      result -= operands[i];
-    }
-    break;
-
-  case "/":
-    result = operands[0];
-    for (let i = 1; i < countOperands; i++) {
-      result /= operands[i];
-    }
-    break;
-
-  case "*":
-    result = operands[0];
-    for (let i = 1; i < countOperands; i++) {
-      result *= operands[i];
-    }
-    break;
-
+// Знайти суму непарних позитивних елементів
+sumOddPositive = 0;
+for (i = 0; i < arrayConst.length; i++) {
+if (arrayConst[i] > 0 && arrayConst[i] % 2 !== 0) {
+sumOddPositive += arrayConst[i];
 }
+}
+console.log(`Sum of odd positive elements: ${sumOddPositive}`);
 
-alert(`The results is ${result}.`);
+
+// Знайти добуток позитивних елементів
+productPositive = 1;
+for (i = 0; i < arrayConst.length; i++) {
+if (arrayConst[i] > 0) {
+productPositive *= arrayConst[i];
+}
+}
+console.log(`Product of positive elements: ${productPositive}`);
+
+
+// Знайти найбільший серед елементів масиву, остальні обнулити
+maxValue = arrayConst[0];
+for (i = 1; i < arrayConst.length; i++) {
+if (arrayConst[i] > maxValue) {
+maxValue = arrayConst[i];
+}
+}
+for (i = 0; i < arrayConst.length; i++) {
+if (arrayConst[i] !== maxValue) {
+arrayConst[i] = 0;
+}
+}
+console.log(`The largest among the elements of the array, the rest are set to zero: ${arrayConst}`);
 
